@@ -1,0 +1,31 @@
+---
+import Bibliotec from '@/Icons/Bibliotec.astro'
+import PlusIcon from '@/Icons/PlusIcon.astro'
+import SidePlaylistCard from '@/components/SidePlaylistCard.astro'
+
+import { playlists } from '@/lib/data'
+---
+
+<div>
+  <div class="mx-4 my-6">
+    <ul class="flex items-start justify-between gap-y-6">
+      <li class="flex items-center justify-center text-lg text-zinc-400 hover:text-white hover:duration-200 font-bold gap-4">
+        <Bibliotec />
+        <span>Tu biblioteca</span>
+      </li>
+      <li class="px-1 py-1 hover:rounded-full hover:bg-[#212121]">
+        <PlusIcon />
+      </li>
+    </ul>
+    <div class="flex items-center my-4 gap-2">
+      <button class="rounded-full bg-[#212121] px-2 py-1 text-white font-semibold hover:bg-zinc-800 duration-200">Playlists</button>
+      <button class="rounded-full bg-[#212121] px-2 py-1 text-white font-semibold hover:bg-zinc-800 duration-200">Podcasts y programas</button>
+      <button class="rounded-full bg-[#212121] px-2 py-1 text-white font-semibold hover:bg-zinc-800 duration-200">Artistas</button>
+    </div>
+  </div>
+  <div>
+    {
+      playlists.map((playlist) => <SidePlaylistCard playlists={playlist} />)
+    }
+  </div>
+</div>
