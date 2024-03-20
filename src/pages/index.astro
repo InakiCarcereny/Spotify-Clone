@@ -1,23 +1,48 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import AsideMenu from '@/components/AsideMenu.astro';
-import AsidePlaylist from '@/components/AsidePlaylist.astro';
-
+import BackIcon from '@/Icons/BackIcon.astro'
+import ForwardIcon from '@/Icons/ForwardIcon.astro'
+import NotificationsIcon from '@/Icons/NotificationsIcon.astro'
+import SocialIcon from '@/Icons/SocialIcon.astro'
+import UserIcon from '@/Icons/UserIcon.astro'
+  
+import PlaylistCard from '@/components/PlaylistCard.astro'
+import { playlists } from '@/lib/data'
 ---
 
 <Layout title="Spotify-Clone | Inaki Carcereny">
-	<div class="flex mx-2 my-2 gap-2">
-		<div class="flex flex-col gap-2">
-			<div class="w-[250px] h-[125px] bg-zinc-900 rounded-2xl">
-				<AsideMenu />
-			</div>
-			<div class="w-[250px] h-[650px] bg-zinc-900 rounded-2xl">
-				<AsidePlaylist />
-			</div>
-		</div>
-		<div class="flex w-screen h-[783px] bg-zinc-900 rounded-2xl">
-
-		</div>
-	</div>
+  <div class="bg-gradient-to-t from-blue-500/0 via-blue-700/60">
+    <div class="flex items-center justify-between pt-4 px-4">
+      <div class="flex items-center gap-1">
+        <a href="" class="rounded-full bg-black/60 px-1 py-1">
+          <BackIcon />
+        </a>
+        <a href="" class="rounded-full bg-black/60 px-1 py-1">
+          <ForwardIcon />
+        </a>
+      </div>
+      <div class="flex items-center gap-1">
+        <a href="" class="rounded-full bg-black/60 px-1 py-1 hover:scale-[1.1] hover: text-white">
+          <NotificationsIcon />
+        <a>
+        <a href="" class="rounded-full bg-black/60 px-1 py-1 hover:scale-[1.1]">
+          <SocialIcon />
+        </a>
+        <a href="" class="rounded-full bg-black/60 px-1 py-1 hover:scale-[1.1]">
+          <UserIcon />
+        </a>
+      </div>
+    </div>
+        
+    <h1 class="text-white text-4xl font-semibold mx-4 mt-10">
+      Buenos dias
+    </h1>
+  </div> 
+        
+  <div class="flex flex-wrap gap-1 mx-2 mt-6">
+    {
+      playlists.map((playlist) => <PlaylistCard playlists={playlist} />)
+    }
+  </div>
 </Layout>
 
