@@ -1,4 +1,6 @@
 ---
+import TimerIcon from "@/Icons/TimerIcon.astro"
+
 import { type Song } from "@/lib/data"
 
 interface Props {
@@ -14,7 +16,9 @@ const { songs } = Astro.props
       <th class="px-4 py-2 font-medium">#</th>
       <th class="px-4 py-2 font-medium">Título</th>
       <th class="px-4 py-2 font-medium">Álbum</th>
-      <th class="px-4 py-2 font-medium">Tiempo</th>
+      <th class="px-4 py-2 font-medium">
+        <TimerIcon />
+      </th>
     </tr>
   </thead>
 

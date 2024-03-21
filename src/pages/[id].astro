@@ -4,7 +4,7 @@ import ForwardIcon from '@/Icons/ForwardIcon.astro'
 import NotificationsIcon from '@/Icons/NotificationsIcon.astro'
 import SocialIcon from '@/Icons/SocialIcon.astro'
 import UserIcon from '@/Icons/UserIcon.astro'
-
+import PauseIcon from '@/Icons/PauseIcon.astro'
 import MusicTable from "@/components/MusicTable.astro";
 
 import { playlists } from "@/lib/data";
@@ -18,7 +18,7 @@ const playlistSongs = songs.filter((song) => song.albumId === playlist?.albumId)
 ---
 
 <Layout title="Spotify-Clone | Inaki Carcereny"> 
-  <div class="bg-gradient-to-t from-blue-500/0 via-blue-700/60">
+  <div class="bg-gradient-to-t from-blue-500/0 via-blue-400/60">
     <div class="flex items-center justify-between pt-4 px-4">
       <div class="flex items-center gap-1">
         <a href="" class="rounded-full bg-black/60 px-1 py-1">
@@ -29,7 +29,7 @@ const playlistSongs = songs.filter((song) => song.albumId === playlist?.albumId)
         </a>
       </div>
       <div class="flex items-center gap-1">
-        <a href="" class="rounded-full bg-black/60 px-1 py-1 hover:scale-[1.1] hover: text-white">
+        <a href="" class="rounded-full bg-black/60 px-1 py-1 hover:scale-[1.1]">
           <NotificationsIcon />
         <a>
         <a href="" class="rounded-full bg-black/60 px-1 py-1 hover:scale-[1.1]">
@@ -42,8 +42,8 @@ const playlistSongs = songs.filter((song) => song.albumId === playlist?.albumId)
     </div>
 
     
-    <div class="flex items-center  mt-12 mx-2">
-      <img class="w-64 h-64 px-2 py-2 pb-4 rounded-xl"src={playlist?.cover} alt="">
+    <div class="flex items-center  mt-8 mx-2">
+      <img class="w-64 h-64 px-2 py-2 pb-4 rounded-xl"src={playlist?.cover} alt={playlist?.title}>
       <div class="flex flex-col text-start mx-2">
         <h2 class="text-white text-6xl font-semibold">{playlist?.title}</h2>
         <p class="text-zinc-400 text-xl">{playlist?.artists}</p>
