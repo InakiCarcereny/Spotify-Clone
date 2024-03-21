@@ -11,7 +11,7 @@ import { playlists } from '@/lib/data'
 ---
 
 <Layout title="Spotify-Clone | Inaki Carcereny">
-  <div class="bg-gradient-to-t from-blue-500/0 via-blue-700/60">
+  <div class="">
     <div class="flex items-center justify-between pt-4 px-4">
       <div class="flex items-center gap-1">
         <a href="" class="rounded-full bg-black/60 px-1 py-1">
@@ -34,10 +34,9 @@ import { playlists } from '@/lib/data'
       </div>
     </div>
         
-    <h1 class="text-white text-4xl font-semibold mx-4 mt-10">
-      Buenos dias
-    </h1>
-  </div> 
+    <div class="contenedor-titulo text-white text-4xl font-semibold mx-4 mt-10">
+      
+    </div> 
         
   <div class="flex flex-wrap gap-1 mx-2 mt-6">
     {
@@ -45,4 +44,22 @@ import { playlists } from '@/lib/data'
     }
   </div>
 </Layout>
+
+<script>
+  const contenedor = document.querySelector('.contenedor-titulo');  
+
+  const fecha = new Date();
+  const hora = fecha.getHours();
+
+  let titulo = document.createElement('h1');
+  contenedor?.appendChild(titulo);
+
+  if (hora >= 6 && hora < 12) {
+    titulo.textContent = 'Buenos días';
+  } else if (hora >= 12 && hora < 20) {
+    titulo.textContent = 'Buenas tardes';
+  } else {
+    titulo.textContent = 'Buenas noches';
+  }
+</script>
 
