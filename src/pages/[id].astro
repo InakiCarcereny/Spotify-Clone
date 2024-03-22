@@ -16,8 +16,8 @@ const playlist = playlists.find((playlist) => playlist.id === id);
 const playlistSongs = songs.filter((song) => song.albumId === playlist?.albumId);
 ---
 
-<Layout title="Spotify-Clone | Inaki Carcereny"> 
-  <div class=" bg-gradient-to-b from-context via-context/40 rounded-xl"
+<Layout title=`Spotify-Clone | ${playlist?.title} `> 
+  <div class="bg-gradient-to-b from-context via-context/40 rounded-xl"
   style=`--context-color:${playlist?.color.accent}`>
     <div class="flex items-center justify-between pt-4 px-4">
       <div class="flex items-center gap-1">
@@ -43,7 +43,8 @@ const playlistSongs = songs.filter((song) => song.albumId === playlist?.albumId)
 
     
     <div class="flex items-center  mt-8 mx-2">
-      <img class="w-64 h-64 px-2 py-2 pb-4"src={playlist?.cover} loading="lazy" alt={playlist?.title}>
+      <img class="w-64 h-64 px-2 py-2 pb-4"src={playlist?.cover} loading="lazy" alt={playlist?.title} 
+      transition:name=`playlist ${playlist?.id} image`>
       <div class="flex flex-col text-start mx-2">
         <h2 class="text-white text-6xl font-semibold">{playlist?.title}</h2>
         <p class="text-white text-xl">{playlist?.artists}</p>
