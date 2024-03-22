@@ -1,7 +1,8 @@
 ---
 import AsideMenu from '@/components/AsideMenu.astro';
 import AsidePlaylist from '@/components/AsidePlaylist.astro';
-import MusicPlayer from '@/components/MusicPlayer.astro';
+import { MusicPlayer } from '../components/MusicPlayer';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -17,6 +18,7 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<ViewTransitions fallback='none'/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -33,13 +35,12 @@ const { title } = Astro.props;
 
 			
 			<div class="w-screen h-[858px] bg-[#141414] rounded-xl">
-
 				<slot />
 			</div>
 		</div>
 		<div class="flex mx-2 my-2 gap-2">
 			<div class="w-screen h-[10vh] bg-black rounded-xl">
-				<MusicPlayer />
+				<MusicPlayer client:load transition:name="media-player" transition:persist/>
 			</div>
 		</div>
 	</body>
